@@ -10,7 +10,7 @@ export function HomePage() {
     <Page id='home-page'>
       <Logo />
       <Text type='title'>Memo Test App</Text>
-      <Card flipped={flipped} figure={FigureType.CLOCK} onClick={() => setFlipped(!flipped)}></Card>
+      <Card number={1} flipped={flipped} figure={FigureType.CLOCK} onClick={() => setFlipped(!flipped)}></Card>
     </Page>
   );
 }
