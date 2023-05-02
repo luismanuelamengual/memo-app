@@ -20,12 +20,14 @@
       border-radius: 10px;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+      box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
     }
     
     .card-content-front {
       background-color: white;
       transform: rotateY(180deg);
-      
       padding: 20px;
     }
     
