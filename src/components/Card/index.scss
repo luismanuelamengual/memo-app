@@ -1,0 +1,40 @@
+.card {
+  background-color: transparent;
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+
+  .card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+
+    .card-content-front, .card-content-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    
+    .card-content-front {
+      background-color: white;
+      transform: rotateY(180deg);
+      border: 5px solid #cf4421;
+      padding: 20px;
+    }
+    
+    .card-content-back {
+      background-color: dodgerblue;
+      color: white;
+    }  
+  }
+
+  &.card-flipped .card-content {
+    transform: rotateY(180deg);
+  }
+}
