@@ -1,0 +1,12 @@
+.text {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  &.paragraph {
+
+  }
+
+  &.title {
+    font-size: 38px;
+    font-weight: 700;
+  }
+}
