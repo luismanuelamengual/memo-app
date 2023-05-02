@@ -16,6 +16,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
+      border: 5px solid #cf4421;
       border-radius: 10px;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
@@ -24,17 +25,33 @@
     .card-content-front {
       background-color: white;
       transform: rotateY(180deg);
-      border: 5px solid #cf4421;
+      
       padding: 20px;
     }
     
     .card-content-back {
-      background-color: dodgerblue;
-      color: white;
+      background-color: white;
+      color: black;
+
+      &::before {
+        content: '';
+        border-radius: 10px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
     }  
   }
 
   &.card-flipped .card-content {
     transform: rotateY(180deg);
+  }
+
+  &.card-zigzag .card-content-back::before {
+    background: linear-gradient(135deg, #ECEDDC 25%, transparent 25%) -50px 0, linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -50px 0, linear-gradient(315deg, #ECEDDC 25%, transparent 25%), linear-gradient(45deg, #ECEDDC 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-color: #EC173A;
   }
 }

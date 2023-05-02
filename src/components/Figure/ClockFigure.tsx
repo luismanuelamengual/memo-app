@@ -1,7 +1,7 @@
 export function ClockFigure() {
   return (
     <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink"
-      width="100%" height="100%" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xmlSpace="preserve">
+      width="100%" height="100%" viewBox="0 0 64 64" enableBackground="new 0 0 64 64" xmlSpace="preserve">
       <g>
         <circle fill="#F76D57" cx="32" cy="32" r="26"/>
         <path fill="#394240" d="M32,0C14.327,0,0,14.327,0,32s14.327,32,32,32s32-14.327,32-32S49.673,0,32,0z M32,62
