@@ -4,6 +4,10 @@
   height: 200px;
   perspective: 1000px;
 
+  &.card-clickable {
+    cursor: pointer;
+  }
+
   .card-content {
     position: relative;
     width: 100%;
