@@ -1,22 +1,17 @@
-import { ReactNode } from 'react';
-import styles from './index.module.scss';
 import classNames from 'classnames';
-
-enum ContainerMode {
-  NORMAL = 'normal',
-  FLUID = 'fluid'
-}
+import { ReactNode } from 'react';
+import './index.scss';
 
 interface Props {
-  mode?: ContainerMode;
+  mode?: 'normal' | 'fluid';
   children: ReactNode;
   className?: string;
 };
 
-export function Container({ children, mode = ContainerMode.NORMAL, className = '' }: Props) {
+export function Container({ children, mode = 'normal', className = '' }: Props) {
   return <div className={classNames({
-    [styles.container]: true,
-    [styles.fluid]: mode === ContainerMode.FLUID,
+    'container': true,
+    'container-fluid': mode === 'fluid',
     [className]: !!className
   })}>{children}</div>;
 }

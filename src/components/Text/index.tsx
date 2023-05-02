@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from './index.module.scss';
+import './index.scss';
 
 interface Props {
   type?: 'title' | 'paragraph';
@@ -8,8 +8,8 @@ interface Props {
 
 export function Text({ type = 'paragraph', children }: Props) {
   return <div className={classNames({
-    [styles.text]: true,
-    [styles.paragraph]: type === 'paragraph',
-    [styles.title]: type === 'title'
+    'text': true,
+    'text-paragraph': type === 'paragraph',
+    'text-title': type === 'title'
   })}>{children}</div>;
 }

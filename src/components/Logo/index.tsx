@@ -1,9 +1,8 @@
-import Image from 'next/image';
-import styles from './index.module.scss';
+import './index.scss';
 
 export function Logo() {
-  return <Image
-    className={styles.logo}
+  return <img
+    className='logo'
     src="/logo.png"
     alt="Memo App Logo"
     width={240}
