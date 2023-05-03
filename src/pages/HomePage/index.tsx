@@ -1,5 +1,5 @@
 import { Card, Logo, Page, Text } from 'components';
-import { FigureType } from 'models';
+import { CardTheme, Figure } from 'models';
 import { useState } from 'react';
 import './index.scss';
 
@@ -10,7 +10,7 @@ export function HomePage() {
     <Page id='home-page'>
       <Logo />
       <Text type='title'>Memo Test App</Text>
-      <Card number={1} flipped={flipped} figure={FigureType.CLOCK} onClick={() => setFlipped(!flipped)}></Card>
+      <Card card={{ number: 8, figure: Figure.CLOCK, theme: CardTheme.ZIGZAG}} flipped={flipped} onClick={() => setFlipped(!flipped)}></Card>
     </Page>
   );
 }

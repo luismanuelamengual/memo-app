@@ -1,12 +1,12 @@
-import { FigureType } from 'models';
+import { Figure as FigureModel } from 'models';
 import { ClockFigure } from './ClockFigure';
 
 const figureComponents = {
-  [FigureType.CLOCK]: <ClockFigure />
+  [FigureModel.CLOCK]: <ClockFigure />
 };
 
 interface Props {
-  figure: FigureType
+  figure: FigureModel
 }
 
 export function Figure({ figure }: Props) {

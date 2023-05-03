@@ -1,3 +1,4 @@
+export * from './card';
 export * from './card-theme';
-export * from './figure-type';
+export * from './figure';
 
