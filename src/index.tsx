@@ -1,3 +1,4 @@
+import { Path } from 'models';
 import { GameRoomPage, HomePage } from 'pages';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -6,11 +7,11 @@ import './index.scss';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: Path.HOME,
     element: <HomePage />,
   },
   {
-    path: '/game-room',
+    path: Path.GAME_ROOM,
     element: <GameRoomPage />
   }
 ]);
