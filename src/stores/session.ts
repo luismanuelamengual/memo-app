@@ -4,7 +4,7 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 import { createStore } from 'zustand/vanilla';
 
-type SessionCard = { card: Card, flipped: boolean };
+export type SessionCard = Card & { flipped: boolean };
 
 interface SessionStoreState  {
   activeCardNumber: number;
@@ -55,7 +55,7 @@ export const SessionStore = createStore(
       setCardFlipped(cardNumber, flipped) {
         set((state: SessionStoreState) => {
           state.cards.forEach(sessionCard => {
-            if (sessionCard.card.number === cardNumber) {
+            if (sessionCard.number === cardNumber) {
               sessionCard.flipped = flipped;
             }
           });
