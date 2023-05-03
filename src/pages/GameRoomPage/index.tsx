@@ -8,7 +8,7 @@ export function GameRoomPage() {
 
   return (
     <Page id='game-room-page'>
-      <Card card={{ number: 8, figure: Figure.CLOCK, theme: CardTheme.ZIGZAG}} flipped={flipped} onClick={() => setFlipped(!flipped)}></Card>
+      <Card card={{ number: 8, figure: Figure.BOOK, theme: CardTheme.ZIGZAG}} flipped={flipped} onClick={() => setFlipped(!flipped)}></Card>
     </Page>
   );
 }
