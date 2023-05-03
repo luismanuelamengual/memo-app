@@ -1,3 +1,3 @@
-export * from './card-style';
+export * from './card-theme';
 export * from './figure-type';
 
