@@ -6,7 +6,7 @@
   padding-left: 10px;
 
   @for $size from 1 through 12 {
-    &[xs-size="#{$size}"] {
+    &.column-xs-#{$size} {
       $width: percentage($size / 12);
       -ms-flex: 0 0 $width;
       flex: 0 0 $width;
@@ -16,7 +16,7 @@
 
   @media (min-width: 576px) {
     @for $size from 1 through 12 {
-      &[sm-size="#{$size}"] {
+      &.column-sm-#{$size} {
         $width: percentage($size / 12);
         -ms-flex: 0 0 $width;
         flex: 0 0 $width;
@@ -27,7 +27,7 @@
 
   @media (min-width: 768px) {
     @for $size from 1 through 12 {
-      &[md-size="#{$size}"] {
+      &.column-md-#{$size} {
         $width: percentage($size / 12);
         -ms-flex: 0 0 $width;
         flex: 0 0 $width;
@@ -38,7 +38,7 @@
 
   @media (min-width: 992px) {
     @for $size from 1 through 12 {
-      &[lg-size="#{$size}"] {
+      &.column-lg-#{$size} {
         $width: percentage($size / 12);
         -ms-flex: 0 0 $width;
         flex: 0 0 $width;
