@@ -23,7 +23,7 @@ interface MemoStoreState  {
   incrementSessionCounter: () => void;
 }
 
-export const MemoStore = createStore(
+const memoStore = createStore(
   persist(
     immer<MemoStoreState>((set) => ({
       session: null,
@@ -87,4 +87,5 @@ export const MemoStore = createStore(
   )
 );
 
-export const useMemoStore = (selector: (state: MemoStoreState) => any) => useStore(MemoStore, selector);
+export const MemoStore = memoStore.getState();
+export const useMemoStore = (selector: (state: MemoStoreState) => any) => useStore(memoStore, selector);
