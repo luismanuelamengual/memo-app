@@ -1,5 +1,5 @@
 import { Path } from 'models';
-import { GameRoomPage, HomePage } from 'pages';
+import { HomePage, MemoPage } from 'pages';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const Router = createBrowserRouter([
@@ -8,7 +8,7 @@ export const Router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: Path.GAME_ROOM,
-    element: <GameRoomPage />
+    path: Path.MEMO,
+    element: <MemoPage />
   }
 ]);

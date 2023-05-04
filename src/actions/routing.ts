@@ -6,5 +6,5 @@ export function goToHome() {
 }
 
 export function goToGameRoom() {
-  Router.navigate(Path.GAME_ROOM);
+  Router.navigate(Path.MEMO);
 }
