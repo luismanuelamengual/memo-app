@@ -12,3 +12,25 @@ export function startMemoGame() {
   MemoStore.startSession(sessionCards);
   goToGameRoom();
 }
+
+export function flipMemoCard(cardNumber: number) {
+  if (!MemoStore.session) {
+    throw new Error('No session started');
+  }
+  const card = MemoStore.getSessionCard(cardNumber);
+  if (!card) {
+    throw new Error (`Card with number "${cardNumber}" was not found !!`);
+  }
+  MemoStore.flipTemporarySessionCard(cardNumber);
+  const temporaryFlippedCards = MemoStore.getSessionTemporaryFlippedCards();
+  if (temporaryFlippedCards.length > 1) {
+    const areTemporaryCardsSameFigure = temporaryFlippedCards.map(card => card.figure).every((v,i,arr) => v === arr[0]);
+    if (areTemporaryCardsSameFigure) {
+      MemoStore.flipTemporarySessionCards();
+    } else {
+      MemoStore.foldTemporarySessionCards();
+    }
+  } else {
+    MemoStore.incrementSessionCounter();
+  }
+}
