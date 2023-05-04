@@ -8,7 +8,7 @@ export function startMemoGame() {
   const sessionNumberOfCards = 6;
   const sessionFiguresToUse: Array<Figure> = generateRandomElements(getEnumValues(Figure) as Array<Figure>, sessionNumberOfCards / 2);
   const sessionFigures = shuffleArray(sessionFiguresToUse.concat([...sessionFiguresToUse]));
-  const sessionCards = sessionFigures.map((figure, index) => ({ figure, theme: sessionCardTheme, number: index + 1, flipped: false } as MemoSessionCard));
+  const sessionCards = sessionFigures.map((figure, index) => ({ figure, theme: sessionCardTheme, number: index + 1, flipped: false, temporaryFlipped: false } as MemoSessionCard));
   MemoStore.startSession(sessionCards);
   goToGameRoom();
 }
