@@ -9,6 +9,7 @@ export type MemoSessionCard = Card & { flipped: boolean, temporaryFlipped: boole
 export interface MemoSession {
   cards: Array<MemoSessionCard>;
   counter: number;
+  score: number;
 }
 
 interface MemoStoreState  {
@@ -20,8 +21,10 @@ interface MemoStoreState  {
   flipTemporarySessionCards: () => void;
   foldTemporarySessionCards: () => void;
   incrementSessionCounter: () => void;
+  setSessionScore: (score: number) => void;
   getSessionCard: (cardNumber: number) => Card | null;
   getSessionTemporaryFlippedCards(): Array<MemoSessionCard>;
+  isSessionEnded: () => boolean;
 }
 
 const memoStore = createStore(
@@ -39,7 +42,8 @@ const memoStore = createStore(
         set((state: MemoStoreState) => {
           state.session = {
             cards,
-            counter: 0
+            counter: 0,
+            score: 0
           };
         });
       },
@@ -60,7 +64,7 @@ const memoStore = createStore(
         set((state: MemoStoreState) => {
           if (state.session) {
             state.session.cards.forEach(sessionCard => {
-              if (sessionCard.temporaryFlipped) {
+              if (sessionCard.temporaryFlipped === true) {
                 sessionCard.temporaryFlipped = false;
                 sessionCard.flipped = true;
               }
@@ -73,7 +77,7 @@ const memoStore = createStore(
         set((state: MemoStoreState) => {
           if (state.session) {
             state.session.cards.forEach(sessionCard => {
-              if (sessionCard.temporaryFlipped) {
+              if (sessionCard.temporaryFlipped === true) {
                 sessionCard.temporaryFlipped = false;
               }
             });
@@ -89,12 +93,24 @@ const memoStore = createStore(
         });
       },
 
+      setSessionScore(score: number) {
+        set((state: MemoStoreState) => {
+          if (state.session) {
+            state.session.score = score;
+          }
+        });
+      },
+
       getSessionCard(cardNumber: number): Card | null {
         return get().session?.cards.find(card => card.number == cardNumber) ?? null;
       },
 
       getSessionTemporaryFlippedCards(): Array<MemoSessionCard> {
         return get().session?.cards.filter(card => card.temporaryFlipped) ?? [];
+      },
+
+      isSessionEnded(): boolean {
+        return get().session?.cards.every(card => card.flipped) ?? false;
       }
     })),
     {

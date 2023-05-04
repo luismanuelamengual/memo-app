@@ -10,7 +10,7 @@ export function MemoPage() {
       <Row>
         {session.cards.map((card) => (
           <Column key={card.number} xs={6} sm={4} md={3}>
-            <Card card={card} flipped={card.flipped || card.temporaryFlipped} onClick={card.flipped ? undefined : (() => flipMemoCard(card.number))}></Card>
+            <Card card={card} flipped={card.flipped || card.temporaryFlipped} onClick={card.flipped || card.temporaryFlipped ? undefined : (() => flipMemoCard(card.number))}></Card>
           </Column>
         ))}
       </Row>

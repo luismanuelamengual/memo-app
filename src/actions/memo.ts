@@ -5,7 +5,7 @@ import { generateRandomElements, getEnumValues, shuffleArray, sleep } from 'util
 
 export function startMemoGame() {
   const sessionCardTheme = CardTheme.ZIGZAG;
-  const sessionNumberOfCards = 12;
+  const sessionNumberOfCards = 6;
   const sessionFiguresToUse: Array<Figure> = generateRandomElements(getEnumValues(Figure) as Array<Figure>, sessionNumberOfCards / 2);
   const sessionFigures = shuffleArray(sessionFiguresToUse.concat([...sessionFiguresToUse]));
   const sessionCards = sessionFigures.map((figure, index) => ({ figure, theme: sessionCardTheme, number: index + 1, flipped: false } as MemoSessionCard));
@@ -28,6 +28,9 @@ export async function flipMemoCard(cardNumber: number) {
       const areTemporaryCardsSameFigure = temporaryFlippedCards.map(card => card.figure).every((v,i,arr) => v === arr[0]);
       if (areTemporaryCardsSameFigure) {
         MemoStore.flipTemporarySessionCards();
+        if (MemoStore.isSessionEnded()) {
+          console.log('Go to Scores !!');
+        }
       } else {
         await sleep(1000);
         MemoStore.foldTemporarySessionCards();
