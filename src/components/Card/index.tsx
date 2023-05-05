@@ -15,7 +15,7 @@ export function Card ({ flipped = false, card, onClick = undefined }: Props) {
     'card': true,
     'card-flipped': flipped,
     'card-clickable': !!onClick,
-    'card-theme-tablecloth': theme == CardTheme.TABLECLOTH
+    'card-theme-carbon_fiber': theme == CardTheme.CARBON_FIBRE
   })} onClick={onClick}>
     <div className='card-content'>
       <div className='card-content-front'>
