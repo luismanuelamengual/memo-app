@@ -1,17 +1,26 @@
 import classNames from 'classnames';
 import './index.scss';
 
+export enum ButtonType {
+  NORMAL = 'normal',
+  PRIMARY = 'primary'
+}
+
 interface Props {
-  type?: 'primary' | 'normal';
+  type?: ButtonType;
   disabled?: boolean;
   children: string;
+  className?: string;
   onClick?: () => void
 }
 
-export function Button({ type = 'normal', disabled = false, children, onClick = undefined}: Props) {
+export function Button({ type = ButtonType.NORMAL, disabled = false, children, className = '', onClick = undefined}: Props) {
   return <button disabled={disabled} className={classNames({
     'button': true,
-    'button-primary': type === 'primary'
+    'button-disabled': disabled,
+    'button-normal': type === ButtonType.NORMAL,
+    'button-primary': type === ButtonType.PRIMARY,
+    [className]: !!className
   })} onClick={onClick}>
     {children}
   </button>;
