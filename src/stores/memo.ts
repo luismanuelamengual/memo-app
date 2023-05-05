@@ -22,12 +22,11 @@ interface MemoStoreState  {
   foldTemporarySessionCards: () => void;
   incrementSessionCounter: () => void;
   setSessionScore: (score: number) => void;
-  getSessionCard: (cardNumber: number) => Card | null;
   getSessionTemporaryFlippedCards(): Array<MemoSessionCard>;
   isSessionEnded: () => boolean;
 }
 
-const memoStore = createStore(
+export const MemoStore = createStore(
   persist(
     immer<MemoStoreState>((set, get) => ({
       session: null,
@@ -50,38 +49,32 @@ const memoStore = createStore(
 
       flipTemporarySessionCard(cardNumber: number) {
         set((state: MemoStoreState) => {
-          if (state.session) {
-            state.session.cards.forEach(sessionCard => {
-              if (sessionCard.number === cardNumber) {
-                sessionCard.temporaryFlipped = true;
-              }
-            });
-          }
+          state.session?.cards.forEach(sessionCard => {
+            if (sessionCard.number === cardNumber) {
+              sessionCard.temporaryFlipped = true;
+            }
+          });
         });
       },
 
       flipTemporarySessionCards() {
         set((state: MemoStoreState) => {
-          if (state.session) {
-            state.session.cards.forEach(sessionCard => {
-              if (sessionCard.temporaryFlipped === true) {
-                sessionCard.temporaryFlipped = false;
-                sessionCard.flipped = true;
-              }
-            });
-          }
+          state.session?.cards.forEach(sessionCard => {
+            if (sessionCard.temporaryFlipped === true) {
+              sessionCard.temporaryFlipped = false;
+              sessionCard.flipped = true;
+            }
+          });
         });
       },
 
       foldTemporarySessionCards() {
         set((state: MemoStoreState) => {
-          if (state.session) {
-            state.session.cards.forEach(sessionCard => {
-              if (sessionCard.temporaryFlipped === true) {
-                sessionCard.temporaryFlipped = false;
-              }
-            });
-          }
+          state.session?.cards.forEach(sessionCard => {
+            if (sessionCard.temporaryFlipped === true) {
+              sessionCard.temporaryFlipped = false;
+            }
+          });
         });
       },
 
@@ -101,10 +94,6 @@ const memoStore = createStore(
         });
       },
 
-      getSessionCard(cardNumber: number): Card | null {
-        return get().session?.cards.find(card => card.number == cardNumber) ?? null;
-      },
-
       getSessionTemporaryFlippedCards(): Array<MemoSessionCard> {
         return get().session?.cards.filter(card => card.temporaryFlipped) ?? [];
       },
@@ -120,5 +109,4 @@ const memoStore = createStore(
   )
 );
 
-export const MemoStore = memoStore.getState();
-export const useMemoStore = (selector: (state: MemoStoreState) => any) => useStore(memoStore, selector);
+export const useMemoStore = (selector: (state: MemoStoreState) => any) => useStore(MemoStore, selector);

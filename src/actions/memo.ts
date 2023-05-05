@@ -9,33 +9,29 @@ export function startMemoGame() {
   const sessionFiguresToUse: Array<Figure> = generateRandomElements(getEnumValues(Figure) as Array<Figure>, sessionNumberOfCards / 2);
   const sessionFigures = shuffleArray(sessionFiguresToUse.concat([...sessionFiguresToUse]));
   const sessionCards = sessionFigures.map((figure, index) => ({ figure, theme: sessionCardTheme, number: index + 1, flipped: false, temporaryFlipped: false } as MemoSessionCard));
-  MemoStore.startSession(sessionCards);
+  MemoStore.getState().startSession(sessionCards);
   goToMemoPage();
 }
 
 export async function flipMemoCard(cardNumber: number) {
-  if (!MemoStore.session) {
-    throw new Error('No session started');
-  }
-  const card = MemoStore.getSessionCard(cardNumber);
-  if (!card) {
-    throw new Error (`Card with number "${cardNumber}" was not found !!`);
-  }
-  if (MemoStore.getSessionTemporaryFlippedCards().length < 2) {
-    MemoStore.flipTemporarySessionCard(cardNumber);
-    const temporaryFlippedCards = MemoStore.getSessionTemporaryFlippedCards();
+  if (MemoStore.getState().getSessionTemporaryFlippedCards().length < 2) {
+    MemoStore.getState().flipTemporarySessionCard(cardNumber);
+    const temporaryFlippedCards = MemoStore.getState().getSessionTemporaryFlippedCards();
     if (temporaryFlippedCards.length > 1) {
-      MemoStore.incrementSessionCounter();
+      MemoStore.getState().incrementSessionCounter();
       const areTemporaryCardsSameFigure = temporaryFlippedCards.map(card => card.figure).every((v,i,arr) => v === arr[0]);
       if (areTemporaryCardsSameFigure) {
-        MemoStore.flipTemporarySessionCards();
-        if (MemoStore.isSessionEnded()) {
+        MemoStore.getState().flipTemporarySessionCards();
+        const memoState = MemoStore.getState();
+        if (memoState.isSessionEnded()) {
+          const session = memoState.session;
+          memoState.setSessionScore(session ? (((session.cards.length / 2) / session.counter) * 100) : 0);
           await sleep(1500);
           goToMemoResultPage();
         }
       } else {
         await sleep(1000);
-        MemoStore.foldTemporarySessionCards();
+        MemoStore.getState().foldTemporarySessionCards();
       }
     }
   }
