@@ -14,24 +14,24 @@ export function startMemoGame() {
 }
 
 export async function flipMemoCard(cardNumber: number) {
-  if (MemoStore.getState().getSessionTemporaryFlippedCards().length < 2) {
-    MemoStore.getState().flipTemporarySessionCard(cardNumber);
-    const temporaryFlippedCards = MemoStore.getState().getSessionTemporaryFlippedCards();
+  const memoState = MemoStore.getState();
+  if (memoState.getSessionTemporaryFlippedCards().length < 2) {
+    memoState.flipTemporarySessionCard(cardNumber);
+    const temporaryFlippedCards = memoState.getSessionTemporaryFlippedCards();
     if (temporaryFlippedCards.length > 1) {
-      MemoStore.getState().incrementSessionCounter();
+      memoState.incrementSessionCounter();
       const areTemporaryCardsSameFigure = temporaryFlippedCards.map(card => card.figure).every((v,i,arr) => v === arr[0]);
       if (areTemporaryCardsSameFigure) {
-        MemoStore.getState().flipTemporarySessionCards();
-        const memoState = MemoStore.getState();
+        memoState.flipTemporarySessionCards();
         if (memoState.isSessionEnded()) {
-          const session = memoState.session;
+          const session = MemoStore.getState().session;
           memoState.setSessionScore(session ? (((session.cards.length / 2) / session.counter) * 100) : 0);
           await sleep(1500);
           goToMemoResultPage();
         }
       } else {
         await sleep(1000);
-        MemoStore.getState().foldTemporarySessionCards();
+        memoState.foldTemporarySessionCards();
       }
     }
   }
