@@ -1,11 +1,14 @@
+import { Figure } from 'components';
+import { Figure as FigureModel } from 'models';
 import './index.scss';
 
 export function Logo() {
-  return <img
-    className='logo'
-    src="/logo.png"
-    alt="Memo App Logo"
-    width={240}
-    height={240}
-  />;
+  return <div className='logo'>
+    <div className='logo-content'>
+      <div className='logo-item'><Figure figure={FigureModel.BALL} /></div>
+      <div className='logo-item'><Figure figure={FigureModel.CAR} /></div>
+      <div className='logo-item'><Figure figure={FigureModel.CAR} /></div>
+      <div className='logo-item'><Figure figure={FigureModel.BALL} /></div>
+    </div>
+  </div>;
 }

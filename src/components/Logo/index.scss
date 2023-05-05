@@ -1,6 +1,44 @@
 .logo {
+  display: inline-block;
+  background-color: white;
   border-radius: 8px;
   box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
   -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+  width: 240px;
+  height: 240px;
+  padding: 20px;
+
+  .logo-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .logo-item {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      padding: 6px;
+
+      &:nth-child(1) {
+        top: 0;
+        left: 0;
+      }
+
+      &:nth-child(2) {
+        top: 0;
+        left: 50%;
+      }
+
+      &:nth-child(3) {
+        top: 50%;
+        left: 0;
+      }
+      
+      &:nth-child(4) {
+        top: 50%;
+        left: 50%;
+      }
+    }
+  }
 }
