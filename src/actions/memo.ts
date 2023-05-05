@@ -13,6 +13,10 @@ export function startMemoGame() {
   goToMemoPage();
 }
 
+export function resumeMemoGame() {
+  goToMemoPage();
+}
+
 export async function flipMemoCard(cardNumber: number) {
   const memoState = MemoStore.getState();
   if (memoState.getSessionTemporaryFlippedCards().length < 2) {
