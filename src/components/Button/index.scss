@@ -11,6 +11,10 @@
   -ms-user-select: none; 
   user-select: none; 
   cursor: pointer;
+
+  &:hover {
+    background-color: #f5f9ff;
+  }
   
   &.button-disabled {
     opacity: 0.2;
