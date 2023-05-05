@@ -1,3 +1,4 @@
 export enum CardTheme {
-  ZIGZAG = 'zigzag'
+  ZIGZAG = 'zigzag',
+  TABLECLOTH = 'tablecloth'
 }

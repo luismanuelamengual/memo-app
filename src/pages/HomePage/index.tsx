@@ -8,7 +8,7 @@ export function HomePage() {
 
   return (
     <Page id='home-page'>
-      <Logo />
+      <Logo className='main-logo'/>
       <Text className='main-title' type='title'>Memo App</Text>
       <Button type={ButtonType.PRIMARY} onClick={startMemoGame}>Play</Button>
       <Button disabled={!session || isSessionEnded()} onClick={resumeMemoGame}>Continue</Button>

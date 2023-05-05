@@ -4,7 +4,7 @@ import { MemoSessionCard, MemoStore } from 'stores';
 import { generateRandomElements, getEnumValues, shuffleArray, sleep } from 'utilities';
 
 export function startMemoGame() {
-  const sessionCardTheme = CardTheme.ZIGZAG;
+  const sessionCardTheme = CardTheme.TABLECLOTH;
   const sessionNumberOfCards = 6;
   const sessionFiguresToUse: Array<Figure> = generateRandomElements(getEnumValues(Figure) as Array<Figure>, sessionNumberOfCards / 2);
   const sessionFigures = shuffleArray(sessionFiguresToUse.concat([...sessionFiguresToUse]));
