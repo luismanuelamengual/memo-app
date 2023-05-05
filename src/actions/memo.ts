@@ -1,4 +1,4 @@
-import { goToGameRoom } from 'actions';
+import { goToMemo, goToMemoResult } from 'actions';
 import { CardTheme, Figure } from 'models';
 import { MemoSessionCard, MemoStore } from 'stores';
 import { generateRandomElements, getEnumValues, shuffleArray, sleep } from 'utilities';
@@ -10,7 +10,7 @@ export function startMemoGame() {
   const sessionFigures = shuffleArray(sessionFiguresToUse.concat([...sessionFiguresToUse]));
   const sessionCards = sessionFigures.map((figure, index) => ({ figure, theme: sessionCardTheme, number: index + 1, flipped: false, temporaryFlipped: false } as MemoSessionCard));
   MemoStore.startSession(sessionCards);
-  goToGameRoom();
+  goToMemo();
 }
 
 export async function flipMemoCard(cardNumber: number) {
@@ -25,18 +25,17 @@ export async function flipMemoCard(cardNumber: number) {
     MemoStore.flipTemporarySessionCard(cardNumber);
     const temporaryFlippedCards = MemoStore.getSessionTemporaryFlippedCards();
     if (temporaryFlippedCards.length > 1) {
+      MemoStore.incrementSessionCounter();
       const areTemporaryCardsSameFigure = temporaryFlippedCards.map(card => card.figure).every((v,i,arr) => v === arr[0]);
       if (areTemporaryCardsSameFigure) {
         MemoStore.flipTemporarySessionCards();
         if (MemoStore.isSessionEnded()) {
-          console.log('Go to Scores !!');
+          goToMemoResult();
         }
       } else {
         await sleep(1000);
         MemoStore.foldTemporarySessionCards();
       }
-    } else {
-      MemoStore.incrementSessionCounter();
     }
   }
 }

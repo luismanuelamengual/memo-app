@@ -5,6 +5,10 @@ export function goToHome() {
   Router.navigate(Path.HOME);
 }
 
-export function goToGameRoom() {
+export function goToMemo() {
   Router.navigate(Path.MEMO);
+}
+
+export function goToMemoResult() {
+  Router.navigate(Path.MEMO_RESULT);
 }

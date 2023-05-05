@@ -1,4 +1,5 @@
 export enum Path {
   HOME = '/',
-  MEMO = '/memo'
+  MEMO = '/memo',
+  MEMO_RESULT = '/memo-result'
 }
