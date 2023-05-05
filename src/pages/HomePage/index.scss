@@ -1,6 +1,10 @@
 #home-page {
   padding-top: 100px;
 
+  @media (max-width: 576px) {
+    padding-top: 20px;
+  }
+
   .main-logo {
     margin-bottom: 30px;
   }
