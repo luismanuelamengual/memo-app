@@ -30,6 +30,7 @@ export async function flipMemoCard(cardNumber: number) {
       if (areTemporaryCardsSameFigure) {
         MemoStore.flipTemporarySessionCards();
         if (MemoStore.isSessionEnded()) {
+          await sleep(1500);
           goToMemoResult();
         }
       } else {
