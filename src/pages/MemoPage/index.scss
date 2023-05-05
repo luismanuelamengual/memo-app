@@ -1,4 +1,14 @@
 #memo-page {
+  padding-top: 20px;
+  
+  .main-title {
+    margin-bottom: 30px;
+  }
+
+  .row {
+    margin-bottom: 30px;
+  }
+
   .column {
     display: flex;
     justify-content: center;

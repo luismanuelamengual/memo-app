@@ -1,5 +1,5 @@
-import { flipMemoCard } from 'actions';
-import { Card, Column, Page, Row } from 'components';
+import { flipMemoCard, goToHomePage } from 'actions';
+import { Button, Card, Column, Page, Row, Text } from 'components';
 import { MemoSession, useMemoStore } from 'stores';
 import './index.scss';
 
@@ -7,6 +7,7 @@ export function MemoPage() {
   const session: MemoSession = useMemoStore(state => state.session);
   return (
     <Page id='memo-page'>
+      <Text className='main-title' type='title'>Memo App</Text>
       <Row>
         {session.cards.map((card) => (
           <Column key={card.number} xs={6} sm={4} md={3}>
@@ -14,6 +15,7 @@ export function MemoPage() {
           </Column>
         ))}
       </Row>
+      <Button onClick={goToHomePage}>Salir</Button>
     </Page>
   );
 }
