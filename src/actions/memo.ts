@@ -1,4 +1,4 @@
-import { goToMemo, goToMemoResult } from 'actions';
+import { goToMemoPage, goToMemoResultPage } from 'actions';
 import { CardTheme, Figure } from 'models';
 import { MemoSessionCard, MemoStore } from 'stores';
 import { generateRandomElements, getEnumValues, shuffleArray, sleep } from 'utilities';
@@ -10,7 +10,7 @@ export function startMemoGame() {
   const sessionFigures = shuffleArray(sessionFiguresToUse.concat([...sessionFiguresToUse]));
   const sessionCards = sessionFigures.map((figure, index) => ({ figure, theme: sessionCardTheme, number: index + 1, flipped: false, temporaryFlipped: false } as MemoSessionCard));
   MemoStore.startSession(sessionCards);
-  goToMemo();
+  goToMemoPage();
 }
 
 export async function flipMemoCard(cardNumber: number) {
@@ -31,7 +31,7 @@ export async function flipMemoCard(cardNumber: number) {
         MemoStore.flipTemporarySessionCards();
         if (MemoStore.isSessionEnded()) {
           await sleep(1500);
-          goToMemoResult();
+          goToMemoResultPage();
         }
       } else {
         await sleep(1000);

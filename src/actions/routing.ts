@@ -1,14 +1,14 @@
 import { Path } from 'models';
 import { Router } from 'router';
 
-export function goToHome() {
+export function goToHomePage() {
   Router.navigate(Path.HOME);
 }
 
-export function goToMemo() {
+export function goToMemoPage() {
   Router.navigate(Path.MEMO);
 }
 
-export function goToMemoResult() {
+export function goToMemoResultPage() {
   Router.navigate(Path.MEMO_RESULT);
 }
