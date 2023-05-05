@@ -6,7 +6,7 @@ export function HomePage() {
   return (
     <Page id='home-page'>
       <Logo />
-      <Text type='title'>Memo Test App</Text>
+      <Text type='title'>Memo App</Text>
       <button onClick={startMemoGame}>test</button>
     </Page>
   );
