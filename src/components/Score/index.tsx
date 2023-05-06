@@ -10,5 +10,5 @@ export function Score({ score, className = '' }: Props) {
   return <div className={classNames({
     'score': true,
     [className]: !!className
-  })}>{score.toFixed(2)}</div>;
+  })}>{Math.floor(score)}</div>;
 }

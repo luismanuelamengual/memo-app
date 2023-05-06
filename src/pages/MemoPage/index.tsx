@@ -1,16 +1,19 @@
 import { flipMemoCard, goToHomePage } from 'actions';
 import { Button, Card, Column, Page, Row, Text, TextType } from 'components';
-import { MemoSession, useMemoStore } from 'stores';
+import { Path } from 'models';
+import { Navigate } from 'react-router-dom';
+import { MemoSessionCard, useMemoStore } from 'stores';
 import './index.scss';
 
 export function MemoPage() {
-  const session: MemoSession = useMemoStore(state => state.session);
-  return (
+  const { isSessionRunning, cards } = useMemoStore(state => ({ isSessionRunning: !!state.session, cards: state.session?.cards }));
+  return (!isSessionRunning ?
+    <Navigate to={Path.HOME} replace /> :
     <Page id='memo-page'>
       <Text className='main-title' type={TextType.TITLE}>Memo App</Text>
       <Row>
-        {session.cards.map((card) => (
-          <Column key={card.number} xs={6} sm={4} md={3} lg={session.cards.length > 12? 2 : undefined}>
+        {cards.map((card: MemoSessionCard) => (
+          <Column key={card.number} xs={6} sm={4} md={3} lg={cards.length > 12? 2 : undefined}>
             <Card card={card} flipped={card.flipped || card.temporaryFlipped} onClick={card.flipped || card.temporaryFlipped ? undefined : (() => flipMemoCard(card.number))}></Card>
           </Column>
         ))}
