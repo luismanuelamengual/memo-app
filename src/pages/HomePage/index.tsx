@@ -7,19 +7,13 @@ import './index.scss';
 
 export function HomePage() {
   const [ newGameModalOpen, setNewGameModalOpen ] = useState<boolean>(false);
-  const { session, isSessionEnded } = useMemoStore(state => ({ session: state.session, isSessionEnded: state.isSessionEnded }));
-
-  function onPlayButtonClicked() {
-    setNewGameModalOpen(true);
-  }
-
+  const isSessionRunning = useMemoStore(state => !!state.session && !state.isSessionEnded());
   return (
     <Page id='home-page'>
       <Logo className='main-logo'/>
       <Text className='main-title' type={TextType.TITLE}>Memo App</Text>
-      <Button type={ButtonType.PRIMARY} onClick={onPlayButtonClicked}>Play</Button>
-      <Button disabled={!session || isSessionEnded()} onClick={resumeMemoGame}>Continue</Button>
-
+      <Button type={ButtonType.PRIMARY} onClick={() => setNewGameModalOpen(true)}>Play</Button>
+      <Button disabled={!isSessionRunning} onClick={resumeMemoGame}>Continue</Button>
       {newGameModalOpen && <Modal className='new-game-modal' onClose={() => setNewGameModalOpen(false)}>
         <Text type={TextType.MODAL_TITLE}>Choose the difficulty</Text>
         <Button onClick={() => startMemoGame(Level.EASY)}>Easy</Button>
