@@ -1,9 +1,16 @@
 #memo-result-page {
   padding-top: 30px;
   
-  .congratulations {
-    width: 100%;
-    margin-bottom: 20px;
-    max-width: 400px;
+  .congratulations-container {
+    background-color: beige;
+    border-radius: 20px;
+    margin: 20px;
+    border: 3px solid khaki;
+    
+    .congratulations {
+      width: 100%;
+      margin-bottom: 20px;
+      max-width: 400px;
+    }
   }
 }

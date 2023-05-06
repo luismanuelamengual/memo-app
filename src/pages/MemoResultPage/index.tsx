@@ -10,7 +10,9 @@ export function MemoResultPage() {
   return (
     <Page id='memo-result-page'>
       <Text className='main-title' type={TextType.TITLE}>Memo App</Text>
-      <Player className='congratulations' autoplay loop src="/lotties/congratulations.json"/>
+      <div className='congratulations-container'>
+        <Player className='congratulations' autoplay loop src="/lotties/congratulations.json"/>
+      </div>
       <Text>¡¡ Congratulations !!</Text>
       <Text>Your current score was ...</Text>
       <Score score={sessionScore} />
