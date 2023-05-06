@@ -1,6 +1,6 @@
 import { goToMemoPage, goToMemoResultPage } from 'actions';
 import { CardTheme, Figure, Level } from 'models';
-import { MemoSessionCard, MemoStore } from 'stores';
+import { MemoSession, MemoSessionCard, MemoStore } from 'stores';
 import { generateRandomElements, getEnumValues, shuffleArray, sleep } from 'utilities';
 
 export function startMemoGame(level: Level) {
@@ -33,8 +33,12 @@ export async function flipMemoCard(cardNumber: number) {
       if (areTemporaryCardsSameFigure) {
         memoState.flipTemporarySessionCards();
         if (memoState.isSessionEnded()) {
-          const session = MemoStore.getState().session;
-          memoState.setSessionScore(session ? (((session.cards.length / 2) / session.counter) * 100) : 0);
+          const session = MemoStore.getState().session as MemoSession;
+          const score = ((session.cards.length / 2) / session.counter) * 100;
+          memoState.setSessionScore(score);
+          if (score > memoState.highScores[session.level]) {
+            memoState.setHighScore(session.level, score);
+          }
           await sleep(1500);
           goToMemoResultPage();
         }

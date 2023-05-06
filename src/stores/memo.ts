@@ -14,6 +14,7 @@ export interface MemoSession {
 }
 
 interface MemoStoreState  {
+  highScores: { [key in Level]: number };
   session: MemoSession | null;
 
   clearSession: () => void;
@@ -23,6 +24,7 @@ interface MemoStoreState  {
   foldTemporarySessionCards: () => void;
   incrementSessionCounter: () => void;
   setSessionScore: (score: number) => void;
+  setHighScore: (level: Level, score: number) => void;
   getSessionTemporaryFlippedCards(): Array<MemoSessionCard>;
   isSessionEnded: () => boolean;
 }
@@ -30,6 +32,11 @@ interface MemoStoreState  {
 export const MemoStore = createStore(
   persist(
     immer<MemoStoreState>((set, get) => ({
+      highScores: {
+        [Level.EASY]: 0,
+        [Level.MEDIUM]: 0,
+        [Level.HARD]: 0
+      },
       session: null,
 
       clearSession() {
@@ -93,6 +100,12 @@ export const MemoStore = createStore(
           if (state.session) {
             state.session.score = score;
           }
+        });
+      },
+
+      setHighScore(level: Level, score: number) {
+        set((state: MemoStoreState) => {
+          state.highScores[level] = score;
         });
       },
 
