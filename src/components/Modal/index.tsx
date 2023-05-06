@@ -4,16 +4,21 @@ import './index.scss';
 
 interface Props {
   children: ReactNode;
-  visible?: boolean;
+  open?: boolean;
   className?: string;
 };
 
-export function Modal({ children, visible = false, className = '' }: Props) {
+export function Modal({ children, open = false, className = '' }: Props) {
+  function onOverlayClick() {
+    console.log('overlay !!!');
+  }
+
   return <div className={classNames({
     'modal': true,
-    'modal-visible': visible,
+    'modal-open': open,
     [className]: !!className
   })}>
+    <div className='modal-overlay' onClick={onOverlayClick}></div>
     <div className='modal-panel'>{children}</div>
   </div>;
 }
