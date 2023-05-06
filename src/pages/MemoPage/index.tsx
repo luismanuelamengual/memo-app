@@ -10,7 +10,7 @@ export function MemoPage() {
       <Text className='main-title' type={TextType.TITLE}>Memo App</Text>
       <Row>
         {session.cards.map((card) => (
-          <Column key={card.number} xs={6} sm={4} md={3}>
+          <Column key={card.number} xs={6} sm={4} md={3} lg={session.cards.length > 12? 2 : undefined}>
             <Card card={card} flipped={card.flipped || card.temporaryFlipped} onClick={card.flipped || card.temporaryFlipped ? undefined : (() => flipMemoCard(card.number))}></Card>
           </Column>
         ))}
