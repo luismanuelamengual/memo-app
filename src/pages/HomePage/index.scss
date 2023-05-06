@@ -14,8 +14,15 @@
   }
 
   .new-game-modal {
-    .button:last-child {
-      margin-bottom: 0px;
+
+    .modal-panel {
+      width: 500px;
+    }
+
+    .button {
+      &:last-child {
+        margin-bottom: 0px;
+      }
     }
   }
 }
