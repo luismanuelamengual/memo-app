@@ -13,9 +13,7 @@
   user-select: none; 
   cursor: pointer;
 
-  &:hover {
-    background-color: #f5f9ff;
-  }
+  
   
   &.button-disabled {
     opacity: 0.2;
@@ -23,10 +21,20 @@
   }
 
   &.button-normal {
-    color: lightblue;
+    color: deepskyblue;
+
+    &:hover {
+      background-color: #f5f9ff;
+    }
   }
 
   &.button-primary {
-    color: deepskyblue;
+    color: white;
+    background-color: deepskyblue;
+    border-color: #2b91c2;
+
+    &:hover {
+      background-color: #69c8f5;
+    }
   }
 }
