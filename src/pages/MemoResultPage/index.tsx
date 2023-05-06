@@ -1,6 +1,5 @@
-import { Player } from '@lottiefiles/react-lottie-player';
 import { goToHomePage } from 'actions';
-import { Button, Page, Score, Text, TextType } from 'components';
+import { Button, CongratulationsBanner, Page, Score, Text, TextType } from 'components';
 import { Path } from 'models';
 import { Navigate } from 'react-router-dom';
 import { useMemoStore } from 'stores';
@@ -12,9 +11,7 @@ export function MemoResultPage() {
     <Navigate to={Path.HOME} replace /> :
     <Page id='memo-result-page'>
       <Text className='main-title' type={TextType.TITLE}>Memo App</Text>
-      <div className='congratulations-container'>
-        <Player className='congratulations' autoplay loop src="/lotties/congratulations.json"/>
-      </div>
+      <CongratulationsBanner />
       <Text>¡¡ Congratulations !!</Text>
       <Text>Your current score was ...</Text>
       <Score score={sessionScore} />
