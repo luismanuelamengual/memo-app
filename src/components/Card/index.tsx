@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import { Figure } from 'components';
 import { Card as CardModel } from 'models';
 import './index.scss';
-import './themes/carbon-fiber.scss';
 
 interface Props {
   flipped?: boolean;
