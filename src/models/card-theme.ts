@@ -1,3 +1,3 @@
 export enum CardTheme {
-  CARBON_FIBRE = 'carbon_fibre'
+  CARBON_FIBER = 'carbon_fiber'
 }

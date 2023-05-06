@@ -18,8 +18,7 @@ export function Button({ type = ButtonType.NORMAL, disabled = false, children, c
   return <button disabled={disabled} className={classNames({
     'button': true,
     'button-disabled': disabled,
-    'button-normal': type === ButtonType.NORMAL,
-    'button-primary': type === ButtonType.PRIMARY,
+    [`button-${type}`]: true,
     [className]: !!className
   })} onClick={onClick}>
     {children}

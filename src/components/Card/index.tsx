@@ -1,21 +1,23 @@
 import classNames from 'classnames';
 import { Figure } from 'components';
-import { Card as CardModel, CardTheme } from 'models';
+import { Card as CardModel } from 'models';
 import './index.scss';
 
 interface Props {
   flipped?: boolean;
   card: CardModel;
+  className?: string;
   onClick?: () => void;
 }
 
-export function Card ({ flipped = false, card, onClick = undefined }: Props) {
+export function Card ({ flipped = false, card, className='', onClick = undefined }: Props) {
   const { number = 0, figure, theme } = card;
   return <div className={classNames({
     'card': true,
     'card-flipped': flipped,
     'card-clickable': !!onClick,
-    'card-theme-carbon_fiber': theme == CardTheme.CARBON_FIBRE
+    [`card-theme-${theme}`]: true,
+    [className]: !!className
   })} onClick={onClick}>
     <div className='card-content'>
       <div className='card-content-front'>
