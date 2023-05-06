@@ -7,5 +7,6 @@ export * from './Logo';
 export * from './Modal';
 export * from './Page';
 export * from './Row';
+export * from './Score';
 export * from './Text';
 
