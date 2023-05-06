@@ -1,0 +1,26 @@
+$primaryColor: cornflowerblue;
+$backBaseColor: #abcade;
+$backHolesColor: #a0c4d9;
+
+.card {
+  &.card-theme-carbon_fiber {
+    
+    .card-content-front, .card-content-back {
+      border-color: $primaryColor;
+    }
+
+    .card-numberer {
+      color: $primaryColor !important;
+    }
+
+    .card-content-back {
+      background:
+      radial-gradient($backHolesColor 15%, transparent 16%) 0 0,
+      radial-gradient($backHolesColor 15%, transparent 16%) 8px 8px,
+      radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+      radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+      background-color:$backBaseColor;
+      background-size:16px 16px;
+    }
+  }
+}
