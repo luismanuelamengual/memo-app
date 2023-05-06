@@ -1,21 +1,26 @@
 import classNames from 'classnames';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import './index.scss';
 
 interface Props {
   children: ReactNode;
   open?: boolean;
   className?: string;
+  onClose?: () => void;
 };
 
-export function Modal({ children, open = false, className = '' }: Props) {
+export function Modal({ children, open = false, onClose = undefined, className = '' }: Props) {
+  const [openState, setOpenState] = useState<boolean>(open);
+  useEffect(() => { setOpenState(open); }, [open]);
+
   function onOverlayClick() {
-    console.log('overlay !!!');
+    setOpenState(false);
+    onClose && onClose();
   }
 
   return <div className={classNames({
     'modal': true,
-    'modal-open': open,
+    'modal-open': openState,
     [className]: !!className
   })}>
     <div className='modal-overlay' onClick={onOverlayClick}></div>
