@@ -1,0 +1,28 @@
+.scores-board {
+  width: 233px;
+  background-color: azure;
+  margin: 0 auto 20px auto;
+  border: 2px solid deepskyblue;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: deepskyblue;
+  overflow: hidden;
+  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+
+  .scores-header {
+    background-color: white;
+    border-bottom: 2px solid deepskyblue;
+    padding: 3px 0;
+  }
+
+  .scores-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1px;
+    grid-auto-rows: minmax(10px, auto);
+    padding: 8px 4px;
+  }
+}
