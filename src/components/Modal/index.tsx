@@ -9,7 +9,7 @@ interface Props {
   onClose?: () => void;
 };
 
-export function Modal({ children, open = false, onClose = undefined, className = '' }: Props) {
+export function Modal({ children, open = true, onClose = undefined, className = '' }: Props) {
   const [openState, setOpenState] = useState<boolean>(open);
   useEffect(() => { setOpenState(open); }, [open]);
 

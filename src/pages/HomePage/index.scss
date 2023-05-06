@@ -12,4 +12,10 @@
   .main-title {
     margin-bottom: 60px;
   }
+
+  .new-game-modal {
+    .button:last-child {
+      margin-bottom: 0px;
+    }
+  }
 }

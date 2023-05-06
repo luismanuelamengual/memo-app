@@ -1,17 +1,22 @@
 import classNames from 'classnames';
 import './index.scss';
 
+export enum TextType {
+  TITLE = 'title',
+  PARAGRAPH = 'paragraph',
+  MODAL_TITLE = 'modal-title'
+}
+
 interface Props {
-  type?: 'title' | 'paragraph';
+  type?: TextType;
   className?: string;
   children: string;
 };
 
-export function Text({ type = 'paragraph', children, className = '' }: Props) {
+export function Text({ type = TextType.PARAGRAPH, children, className = '' }: Props) {
   return <div className={classNames({
     'text': true,
-    'text-paragraph': type === 'paragraph',
-    'text-title': type === 'title',
+    [`text-${type}`]: true,
     [className]: !!className
   })}>{children}</div>;
 }
