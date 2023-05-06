@@ -1,4 +1,4 @@
-import { Card } from 'models';
+import { Card, Level } from 'models';
 import { useStore } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
@@ -7,6 +7,7 @@ import { createStore } from 'zustand/vanilla';
 export type MemoSessionCard = Card & { flipped: boolean, temporaryFlipped: boolean };
 
 export interface MemoSession {
+  level: Level,
   cards: Array<MemoSessionCard>;
   counter: number;
   score: number;
@@ -16,7 +17,7 @@ interface MemoStoreState  {
   session: MemoSession | null;
 
   clearSession: () => void;
-  startSession: (cards: Array<MemoSessionCard>) => void;
+  startSession: (level: Level, cards: Array<MemoSessionCard>) => void;
   flipTemporarySessionCard: (cardNumber: number) => void;
   flipTemporarySessionCards: () => void;
   foldTemporarySessionCards: () => void;
@@ -37,9 +38,10 @@ export const MemoStore = createStore(
         });
       },
 
-      startSession(cards) {
+      startSession(level, cards) {
         set((state: MemoStoreState) => {
           state.session = {
+            level,
             cards,
             counter: 0,
             score: 0

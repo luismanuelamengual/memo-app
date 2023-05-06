@@ -1,15 +1,20 @@
 import { goToMemoPage, goToMemoResultPage } from 'actions';
-import { CardTheme, Figure } from 'models';
+import { CardTheme, Figure, Level } from 'models';
 import { MemoSessionCard, MemoStore } from 'stores';
 import { generateRandomElements, getEnumValues, shuffleArray, sleep } from 'utilities';
 
-export function startMemoGame() {
+export function startMemoGame(level: Level) {
+  let sessionNumberOfCards;
+  switch(level) {
+    case Level.EASY: sessionNumberOfCards = 12; break;
+    case Level.MEDIUM: sessionNumberOfCards = 18; break;
+    case Level.HARD: sessionNumberOfCards = 24; break;
+  }
   const sessionCardTheme = CardTheme.CARBON_FIBER;
-  const sessionNumberOfCards = 6;
   const sessionFiguresToUse: Array<Figure> = generateRandomElements(getEnumValues(Figure) as Array<Figure>, sessionNumberOfCards / 2);
   const sessionFigures = shuffleArray(sessionFiguresToUse.concat([...sessionFiguresToUse]));
   const sessionCards = sessionFigures.map((figure, index) => ({ figure, theme: sessionCardTheme, number: index + 1, flipped: false, temporaryFlipped: false } as MemoSessionCard));
-  MemoStore.getState().startSession(sessionCards);
+  MemoStore.getState().startSession(level, sessionCards);
   goToMemoPage();
 }
 

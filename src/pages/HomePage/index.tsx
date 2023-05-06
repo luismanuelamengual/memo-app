@@ -1,5 +1,6 @@
 import { resumeMemoGame, startMemoGame } from 'actions';
 import { Button, ButtonType, Logo, Modal, Page, Text, TextType } from 'components';
+import { Level } from 'models';
 import { useState } from 'react';
 import { useMemoStore } from 'stores';
 import './index.scss';
@@ -21,9 +22,9 @@ export function HomePage() {
 
       {newGameModalOpen && <Modal className='new-game-modal' onClose={() => setNewGameModalOpen(false)}>
         <Text type={TextType.MODAL_TITLE}>Choose the difficulty</Text>
-        <Button onClick={() => startMemoGame()}>Easy</Button>
-        <Button onClick={() => startMemoGame()}>Medium</Button>
-        <Button onClick={() => startMemoGame()}>Hard</Button>
+        <Button onClick={() => startMemoGame(Level.EASY)}>Easy</Button>
+        <Button onClick={() => startMemoGame(Level.MEDIUM)}>Medium</Button>
+        <Button onClick={() => startMemoGame(Level.HARD)}>Hard</Button>
       </Modal>}
     </Page>
   );
