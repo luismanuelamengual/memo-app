@@ -10,11 +10,12 @@
   border: 2px solid;
   -webkit-user-select: none; 
   -ms-user-select: none; 
-  user-select: none; 
+  user-select: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   cursor: pointer;
 
-  
-  
   &.button-disabled {
     opacity: 0.2;
     cursor: not-allowed;
