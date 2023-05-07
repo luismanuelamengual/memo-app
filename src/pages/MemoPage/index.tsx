@@ -1,3 +1,4 @@
+import { Player } from '@lottiefiles/react-lottie-player';
 import { flipMemoCard, goToHomePage } from 'actions';
 import { Button, Card, Column, Page, Row, Text, TextType } from 'components';
 import { Path } from 'models';
@@ -6,7 +7,7 @@ import { MemoSessionCard, useMemoStore } from 'stores';
 import './index.scss';
 
 export function MemoPage() {
-  const { isSessionRunning, cards } = useMemoStore(state => ({ isSessionRunning: !!state.session, cards: state.session?.cards }));
+  const { isSessionRunning, isSessionFinished, cards } = useMemoStore(state => ({ isSessionRunning: !!state.session, isSessionFinished: state.isSessionEnded(), cards: state.session?.cards }));
   return (!isSessionRunning ?
     <Navigate to={Path.HOME} replace /> :
     <Page id='memo-page'>
@@ -19,6 +20,7 @@ export function MemoPage() {
         ))}
       </Row>
       <Button onClick={goToHomePage}>Salir</Button>
+      {isSessionFinished && <Player className='success-animation' autoplay src="/lotties/success.json"/>}
     </Page>
   );
 }
