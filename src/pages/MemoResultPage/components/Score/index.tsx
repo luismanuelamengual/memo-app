@@ -7,9 +7,10 @@ interface Props {
 };
 
 export function Score({ className = '' }: Props) {
-  const sessionScore = useMemoStore(state => state.session?.score);
+  const { score, isRecord } = useMemoStore(state => ({ score: state.session?.score, isRecord: state.session ? (state.session.score >= state.highScores[state.session.level]) : false}));
   return <div className={classNames({
     'score': true,
+    'score-record': isRecord,
     [className]: !!className
-  })}>{Math.floor(sessionScore)}</div>;
+  })}>{Math.floor(score)}</div>;
 }
