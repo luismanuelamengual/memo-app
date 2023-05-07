@@ -6,7 +6,7 @@ import { generateRandomElements, getEnumValues, shuffleArray, sleep } from 'util
 export function startMemoGame(level: Level) {
   let sessionNumberOfCards;
   switch(level) {
-    case Level.EASY: sessionNumberOfCards = 2; break;
+    case Level.EASY: sessionNumberOfCards = 12; break;
     case Level.MEDIUM: sessionNumberOfCards = 18; break;
     case Level.HARD: sessionNumberOfCards = 24; break;
   }
