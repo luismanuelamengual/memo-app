@@ -3,6 +3,9 @@
   max-width: 200px;
   width: 100%;
   perspective: 1000px;
+  -webkit-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none;
 
   &.card:after {
     content: "";
