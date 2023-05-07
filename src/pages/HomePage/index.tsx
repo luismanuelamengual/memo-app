@@ -1,9 +1,9 @@
 import { resumeMemoGame, startMemoGame } from 'actions';
-import { Button, ButtonType, Logo, Modal, Page, Text, TextType } from 'components';
+import { Button, ButtonType, Modal, Page, Text, TextType } from 'components';
 import { Level } from 'models';
 import { useState } from 'react';
 import { useMemoStore } from 'stores';
-import { ScoreBoard } from './components';
+import { Logo, ScoreBoard } from './components';
 import './index.scss';
 
 export function HomePage() {
