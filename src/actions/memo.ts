@@ -10,7 +10,7 @@ export function startMemoGame(level: Level) {
     case Level.MEDIUM: sessionNumberOfCards = 18; break;
     case Level.HARD: sessionNumberOfCards = 24; break;
   }
-  const sessionCardTheme = CardTheme.CARBON_FIBER;
+  const sessionCardTheme = CardTheme.CLASSIC;
   const sessionFiguresToUse: Array<Figure> = generateRandomElements(getEnumValues(Figure) as Array<Figure>, sessionNumberOfCards / 2);
   const sessionFigures = shuffleArray(sessionFiguresToUse.concat([...sessionFiguresToUse]));
   const sessionCards = sessionFigures.map((figure, index) => ({ figure, theme: sessionCardTheme, number: index + 1, flipped: false, temporaryFlipped: false } as MemoSessionCard));
