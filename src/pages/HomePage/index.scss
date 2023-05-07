@@ -1,16 +1,13 @@
 #home-page {
-  padding-top: 100px;
-
-  @media (max-width: 576px) {
-    padding-top: 20px;
-  }
+  padding-top: 20px;
 
   .main-logo {
-    margin-bottom: 30px;
+    max-width: 200px;
+    margin-bottom: 20px;
   }
 
   .main-title {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
   }
 
   .new-game-modal {
@@ -23,6 +20,21 @@
       &:last-child {
         margin-bottom: 0px;
       }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  #home-page {
+    padding-top: 100px !important;
+
+    .main-logo {
+      max-width: 280px !important;
+      margin-bottom: 30px !important;
+    }
+  
+    .main-title {
+      margin-bottom: 60px !important;
     }
   }
 }
