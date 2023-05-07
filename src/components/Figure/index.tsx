@@ -5,5 +5,5 @@ interface Props {
 }
 
 export function Figure({ figure }: Props) {
-  return <img src={`/figures/${figure}.svg`} />;
+  return <img src={`/svgs/figures/${figure}.svg`} />;
 }
