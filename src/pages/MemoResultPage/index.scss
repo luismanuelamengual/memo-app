@@ -1,3 +1,15 @@
 #memo-result-page {
   padding-top: 30px;
 }
+
+@media (min-width: 1400px) {
+  #memo-result-page {
+    .congratulations-banner {
+      max-width: 700px;
+
+      .animation {
+        max-width: 400px;
+      }
+    }
+  }
+}
