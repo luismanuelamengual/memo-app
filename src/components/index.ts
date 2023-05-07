@@ -4,7 +4,6 @@ export * from './Column';
 export * from './Container';
 export * from './ContratulationsBanner';
 export * from './Figure';
-export * from './ScoreBoard';
 export * from './Logo';
 export * from './Modal';
 export * from './Page';

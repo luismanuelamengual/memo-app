@@ -1,14 +1,14 @@
 import classNames from 'classnames';
+import { Level } from 'models';
+import { useMemoStore } from 'stores';
 import './index.scss';
 
 interface Props {
-  easyScore: number;
-  mediumScore: number;
-  hardScore: number;
   className?: string;
 };
 
-export function ScoreBoard({ easyScore, mediumScore, hardScore, className = '' }: Props) {
+export function ScoreBoard({ className = '' }: Props) {
+  const highScores = useMemoStore(state => state.highScores);
   return <div className={classNames({
     'scores-board': true,
     [className]: !!className
@@ -18,9 +18,9 @@ export function ScoreBoard({ easyScore, mediumScore, hardScore, className = '' }
       <div>Easy</div>
       <div>Medium</div>
       <div>Hard</div>
-      <div>{Math.floor(easyScore)}</div>
-      <div>{Math.floor(mediumScore)}</div>
-      <div>{Math.floor(hardScore)}</div>
+      <div>{Math.floor(highScores[Level.EASY])}</div>
+      <div>{Math.floor(highScores[Level.MEDIUM])}</div>
+      <div>{Math.floor(highScores[Level.HARD])}</div>
     </div>
   </div>;
 }
