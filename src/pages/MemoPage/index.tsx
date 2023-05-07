@@ -19,7 +19,7 @@ export function MemoPage() {
           </Column>
         ))}
       </Row>
-      <Button onClick={goToHomePage}>Salir</Button>
+      <Button disabled={isSessionFinished} onClick={goToHomePage}>Exit</Button>
       {isSessionFinished && <Player className='success-animation' autoplay src="/lotties/success.json"/>}
     </Page>
   );

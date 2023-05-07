@@ -16,7 +16,7 @@ export function MemoResultPage() {
       <Text>¡¡ Congratulations !!</Text>
       <Text>Your current score was ...</Text>
       <Score />
-      <Button onClick={goToHomePage}>Salir</Button>
+      <Button onClick={goToHomePage}>Exit</Button>
     </Page>
   );
 }
