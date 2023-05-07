@@ -1,4 +1,5 @@
 .score {
+  position: relative;
   display: block;
   width: 100%;
   max-width: 200px;
@@ -9,4 +10,14 @@
   border-radius: 14px;
   color: deepskyblue;
   border: 2px solid deepskyblue;
+
+  .crown {
+    position: absolute;
+    top: -27px;
+    right: -13px;
+    width: 44px;
+    height: 60px;
+    background-repeat: no-repeat;
+    rotate: 31deg;
+  }
 }

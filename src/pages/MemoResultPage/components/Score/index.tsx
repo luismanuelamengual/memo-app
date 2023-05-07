@@ -10,7 +10,9 @@ export function Score({ className = '' }: Props) {
   const { score, isRecord } = useMemoStore(state => ({ score: state.session?.score, isRecord: state.session ? (state.session.score >= state.highScores[state.session.level]) : false}));
   return <div className={classNames({
     'score': true,
-    'score-record': isRecord,
     [className]: !!className
-  })}>{Math.floor(score)}</div>;
+  })}>
+    {Math.floor(score)}
+    {isRecord && <img className='crown' src='/svgs/crown.svg' />}
+  </div>;
 }
