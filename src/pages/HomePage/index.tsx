@@ -1,9 +1,8 @@
-import { resumeMemoGame, startMemoGame } from 'actions';
-import { Button, ButtonType, Modal, Page, Text, TextType } from 'components';
-import { Level } from 'models';
+import { resumeMemoGame } from 'actions';
+import { Button, ButtonType, Page, Text, TextType } from 'components';
 import { useState } from 'react';
 import { useMemoStore } from 'stores';
-import { Logo, ScoreBoard } from './components';
+import { Logo, NewGameModal, ScoreBoard } from './components';
 import './index.scss';
 
 export function HomePage() {
@@ -16,12 +15,7 @@ export function HomePage() {
       <ScoreBoard />
       <Button type={ButtonType.PRIMARY} onClick={() => setNewGameModalOpen(true)}>Play</Button>
       <Button disabled={!isSessionRunning} onClick={resumeMemoGame}>Continue</Button>
-      {newGameModalOpen && <Modal className='new-game-modal' onClose={() => setNewGameModalOpen(false)}>
-        <Text type={TextType.MODAL_TITLE}>Choose the difficulty</Text>
-        <Button onClick={() => startMemoGame(Level.EASY)}>Easy</Button>
-        <Button onClick={() => startMemoGame(Level.MEDIUM)}>Medium</Button>
-        <Button onClick={() => startMemoGame(Level.HARD)}>Hard</Button>
-      </Modal>}
+      <NewGameModal open={newGameModalOpen} onClose={() => setNewGameModalOpen(false)} />
     </Page>
   );
 }

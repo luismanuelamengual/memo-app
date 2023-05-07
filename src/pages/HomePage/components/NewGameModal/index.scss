@@ -1,0 +1,12 @@
+.new-game-modal {
+
+  .modal-panel {
+    width: 500px;
+  }
+
+  .button {
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}
