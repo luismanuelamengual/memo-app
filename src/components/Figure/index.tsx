@@ -1,7 +1,7 @@
-import { Figure as FigureModel } from 'models';
+import { FigureType } from 'models';
 
 interface Props {
-  figure: FigureModel
+  figure: FigureType
 }
 
 export function Figure({ figure }: Props) {

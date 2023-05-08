@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { CardTheme, Figure } from 'models';
+import { CardTheme, FigureType } from 'models';
 import { Card } from './index';
 
 const meta: Meta<typeof Card> = {
@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Card>;
 
 export const Classic: Story = {
   args: {
-    figure: Figure.CAMERA,
+    figure: FigureType.CAMERA,
     number: 1,
     theme: CardTheme.CLASSIC,
     flipped: true
@@ -21,7 +21,7 @@ export const Classic: Story = {
 
 export const Folded: Story = {
   args: {
-    figure: Figure.CAMERA,
+    figure: FigureType.CAMERA,
     number: 1,
     theme: CardTheme.CLASSIC,
     flipped: false

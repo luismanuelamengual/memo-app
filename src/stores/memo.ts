@@ -1,4 +1,4 @@
-import { CardTheme, Figure, Level } from 'models';
+import { CardTheme, FigureType, Level } from 'models';
 import { useStore } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
@@ -6,7 +6,7 @@ import { createStore } from 'zustand/vanilla';
 
 export interface MemoSessionCard {
   theme: CardTheme;
-  figure: Figure;
+  figure: FigureType;
   number: number;
   flipped: boolean;
   temporaryFlipped: boolean;

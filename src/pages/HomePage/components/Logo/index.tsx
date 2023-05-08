@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { Figure } from 'components';
-import { Figure as FigureModel } from 'models';
+import { FigureType } from 'models';
 import './index.scss';
 
 interface Props {
@@ -13,10 +13,10 @@ export function Logo({ className = '' }: Props) {
     [className]: !!className
   })}>
     <div className='logo-content'>
-      <div className='logo-item'><Figure figure={FigureModel.BALL} /></div>
-      <div className='logo-item'><Figure figure={FigureModel.CAR} /></div>
-      <div className='logo-item'><Figure figure={FigureModel.CAR} /></div>
-      <div className='logo-item'><Figure figure={FigureModel.BALL} /></div>
+      <div className='logo-item'><Figure figure={FigureType.BALL} /></div>
+      <div className='logo-item'><Figure figure={FigureType.CAR} /></div>
+      <div className='logo-item'><Figure figure={FigureType.CAR} /></div>
+      <div className='logo-item'><Figure figure={FigureType.BALL} /></div>
     </div>
   </div>;
 }

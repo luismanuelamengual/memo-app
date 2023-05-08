@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import { Figure } from 'components';
-import { CardTheme, Figure as FigureModel } from 'models';
+import { CardTheme, FigureType } from 'models';
 import './index.scss';
 
 interface Props {
   flipped?: boolean;
-  figure: FigureModel;
+  figure: FigureType;
   number?: number;
   theme?: CardTheme;
   className?: string;

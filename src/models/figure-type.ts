@@ -1,4 +1,4 @@
-export enum Figure {
+export enum FigureType {
   BALL = 'ball',
   BEER = 'beer',
   BOOK = 'book',
