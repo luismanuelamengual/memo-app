@@ -1,6 +1,6 @@
 import { goToMemoPage, goToMemoResultPage } from 'actions';
-import { CardTheme, FigureType, Level } from 'models';
-import { MemoSession, MemoSessionCard, MemoStore } from 'stores';
+import { CardTheme, FigureType, Level, MemoSession, MemoSessionCard } from 'models';
+import { MemoStore } from 'stores';
 import { generateRandomElements, getEnumValues, playSound, shuffleArray, sleep } from 'utilities';
 
 export function startMemoGame(level: Level) {

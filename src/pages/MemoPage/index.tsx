@@ -1,9 +1,9 @@
 import { Player } from '@lottiefiles/react-lottie-player';
 import { flipMemoCard, goToHomePage } from 'actions';
 import { Button, Card, Column, Page, Row, Text, TextType } from 'components';
-import { Path } from 'models';
+import { MemoSessionCard, Path } from 'models';
 import { Navigate } from 'react-router-dom';
-import { MemoSessionCard, useMemoStore } from 'stores';
+import { useMemoStore } from 'stores';
 import './index.scss';
 
 export function MemoPage() {

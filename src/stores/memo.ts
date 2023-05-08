@@ -1,23 +1,8 @@
-import { CardTheme, FigureType, Level } from 'models';
+import { Level, MemoSession, MemoSessionCard } from 'models';
 import { useStore } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 import { createStore } from 'zustand/vanilla';
-
-export interface MemoSessionCard {
-  theme: CardTheme;
-  figure: FigureType;
-  number: number;
-  flipped: boolean;
-  temporaryFlipped: boolean;
-}
-
-export interface MemoSession {
-  level: Level,
-  cards: Array<MemoSessionCard>;
-  counter: number;
-  score: number;
-}
 
 interface MemoStoreState  {
   highScores: { [key in Level]: number };
