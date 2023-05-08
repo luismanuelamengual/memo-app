@@ -1,17 +1,18 @@
 import classNames from 'classnames';
 import { Figure } from 'components';
-import { Card as CardModel } from 'models';
+import { CardTheme, Figure as FigureModel } from 'models';
 import './index.scss';
 
 interface Props {
   flipped?: boolean;
-  card: CardModel;
+  figure: FigureModel;
+  number?: number;
+  theme?: CardTheme;
   className?: string;
   onClick?: () => void;
 }
 
-export function Card ({ flipped = false, card, className='', onClick = undefined }: Props) {
-  const { number = 0, figure, theme } = card;
+export function Card ({ flipped = false, figure, number = 0, theme = CardTheme.CLASSIC, className='', onClick = undefined }: Props) {
   return <div className={classNames({
     'card': true,
     'card-flipped': flipped,

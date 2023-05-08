@@ -1,10 +1,16 @@
-import { Card, Level } from 'models';
+import { CardTheme, Figure, Level } from 'models';
 import { useStore } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 import { createStore } from 'zustand/vanilla';
 
-export type MemoSessionCard = Card & { flipped: boolean, temporaryFlipped: boolean };
+export interface MemoSessionCard {
+  theme: CardTheme;
+  figure: Figure;
+  number: number;
+  flipped: boolean;
+  temporaryFlipped: boolean;
+}
 
 export interface MemoSession {
   level: Level,

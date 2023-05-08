@@ -1,5 +1,4 @@
-// @ts-ignore
-const soundFiles = new Map<string, Audio>();
+const soundFiles = new Map<string, any>();
 
 export function playSound(fileName: string) {
   try {
