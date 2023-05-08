@@ -1,7 +1,7 @@
 import { startMemoGame } from 'actions';
 import classNames from 'classnames';
 import { Button, Modal, Text, TextType } from 'components';
-import { Level } from 'models';
+import { MemoSessionLevel } from 'models';
 import './index.scss';
 
 interface Props {
@@ -16,8 +16,8 @@ export function NewGameModal({ className = '', open, onClose }: Props) {
     [className]: !!className
   })} onClose={onClose} open={open}>
     <Text type={TextType.MODAL_TITLE}>Choose the difficulty</Text>
-    <Button onClick={() => startMemoGame(Level.EASY)}>Easy</Button>
-    <Button onClick={() => startMemoGame(Level.MEDIUM)}>Medium</Button>
-    <Button onClick={() => startMemoGame(Level.HARD)}>Hard</Button>
+    <Button onClick={() => startMemoGame(MemoSessionLevel.EASY)}>Easy</Button>
+    <Button onClick={() => startMemoGame(MemoSessionLevel.MEDIUM)}>Medium</Button>
+    <Button onClick={() => startMemoGame(MemoSessionLevel.HARD)}>Hard</Button>
   </Modal>;
 }

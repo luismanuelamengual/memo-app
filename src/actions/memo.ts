@@ -1,14 +1,14 @@
 import { goToMemoPage, goToMemoResultPage } from 'actions';
-import { CardTheme, FigureType, Level, MemoSession, MemoSessionCard } from 'models';
+import { CardTheme, FigureType, MemoSession, MemoSessionCard, MemoSessionLevel } from 'models';
 import { MemoStore } from 'stores';
 import { generateRandomElements, getEnumValues, playSound, shuffleArray, sleep } from 'utilities';
 
-export function startMemoGame(level: Level) {
+export function startMemoGame(level: MemoSessionLevel) {
   let sessionNumberOfCards;
   switch(level) {
-    case Level.EASY: sessionNumberOfCards = 12; break;
-    case Level.MEDIUM: sessionNumberOfCards = 18; break;
-    case Level.HARD: sessionNumberOfCards = 24; break;
+    case MemoSessionLevel.EASY: sessionNumberOfCards = 12; break;
+    case MemoSessionLevel.MEDIUM: sessionNumberOfCards = 18; break;
+    case MemoSessionLevel.HARD: sessionNumberOfCards = 24; break;
   }
   const sessionCardTheme = CardTheme.CLASSIC;
   const sessionFiguresToUse: Array<FigureType> = generateRandomElements(getEnumValues(FigureType) as Array<FigureType>, sessionNumberOfCards / 2);

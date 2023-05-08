@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Level } from 'models';
+import { MemoSessionLevel } from 'models';
 import { useMemoStore } from 'stores';
 import './index.scss';
 
@@ -18,9 +18,9 @@ export function ScoreBoard({ className = '' }: Props) {
       <div>Easy</div>
       <div>Medium</div>
       <div>Hard</div>
-      <div>{Math.floor(highScores[Level.EASY])}</div>
-      <div>{Math.floor(highScores[Level.MEDIUM])}</div>
-      <div>{Math.floor(highScores[Level.HARD])}</div>
+      <div>{Math.floor(highScores[MemoSessionLevel.EASY])}</div>
+      <div>{Math.floor(highScores[MemoSessionLevel.MEDIUM])}</div>
+      <div>{Math.floor(highScores[MemoSessionLevel.HARD])}</div>
     </div>
   </div>;
 }

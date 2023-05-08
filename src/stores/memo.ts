@@ -1,21 +1,21 @@
-import { Level, MemoSession, MemoSessionCard } from 'models';
+import { MemoSession, MemoSessionCard, MemoSessionLevel } from 'models';
 import { useStore } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 import { createStore } from 'zustand/vanilla';
 
 interface MemoStoreState  {
-  highScores: { [key in Level]: number };
+  highScores: { [key in MemoSessionLevel]: number };
   session: MemoSession | null;
 
   clearSession: () => void;
-  startSession: (level: Level, cards: Array<MemoSessionCard>) => void;
+  startSession: (level: MemoSessionLevel, cards: Array<MemoSessionCard>) => void;
   flipTemporarySessionCard: (cardNumber: number) => void;
   flipTemporarySessionCards: () => void;
   foldTemporarySessionCards: () => void;
   incrementSessionCounter: () => void;
   setSessionScore: (score: number) => void;
-  setHighScore: (level: Level, score: number) => void;
+  setHighScore: (level: MemoSessionLevel, score: number) => void;
   getSessionTemporaryFlippedCards(): Array<MemoSessionCard>;
   isSessionEnded: () => boolean;
 }
@@ -24,9 +24,9 @@ export const MemoStore = createStore(
   persist(
     immer<MemoStoreState>((set, get) => ({
       highScores: {
-        [Level.EASY]: 0,
-        [Level.MEDIUM]: 0,
-        [Level.HARD]: 0
+        [MemoSessionLevel.EASY]: 0,
+        [MemoSessionLevel.MEDIUM]: 0,
+        [MemoSessionLevel.HARD]: 0
       },
       session: null,
 
@@ -94,7 +94,7 @@ export const MemoStore = createStore(
         });
       },
 
-      setHighScore(level: Level, score: number) {
+      setHighScore(level: MemoSessionLevel, score: number) {
         set((state: MemoStoreState) => {
           state.highScores[level] = score;
         });

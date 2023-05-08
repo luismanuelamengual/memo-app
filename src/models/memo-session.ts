@@ -1,7 +1,7 @@
-import { Level, MemoSessionCard } from 'models';
+import { MemoSessionCard, MemoSessionLevel } from 'models';
 
 export interface MemoSession {
-  level: Level,
+  level: MemoSessionLevel,
   cards: Array<MemoSessionCard>;
   counter: number;
   score: number;
