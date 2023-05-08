@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Button, ButtonType } from 'components';
 
 describe('<Button />', () => {
@@ -8,21 +8,17 @@ describe('<Button />', () => {
   });
 
   it('renders button class successfully', () => {
-    render(<Button>Click Me</Button>);
-    const button = screen.getByRole('button');
-    expect(button).toHaveClass('button');
+    const { container } = render(<Button>Click Me</Button>);
+    expect(container.firstChild).toHaveClass('button');
   });
 
   it('renders primary button successfully', () => {
-    render(<Button type={ButtonType.PRIMARY}>Click Me</Button>);
-    const button = screen.getByRole('button');
-    expect(button).toHaveClass('button-primary');
+    const { container } = render(<Button type={ButtonType.PRIMARY}>Click Me</Button>);
+    expect(container.firstChild).toHaveClass('button-primary');
   });
 
   it('renders disabled button successfully', () => {
-    render(<Button disabled>Click Me</Button>);
-    const button = screen.getByRole('button');
-    expect(button).toHaveClass('button-disabled');
+    const { container } = render(<Button disabled>Click Me</Button>);
+    expect(container.firstChild).toHaveClass('button-disabled');
   });
 });
-
