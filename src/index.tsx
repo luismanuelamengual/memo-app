@@ -1,3 +1,4 @@
+import { Version } from 'components';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
@@ -7,6 +8,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <Version />
     <RouterProvider router={Router} />
   </React.StrictMode>
 );

@@ -7,4 +7,5 @@ export * from './Modal';
 export * from './Page';
 export * from './Row';
 export * from './Text';
+export * from './Version';
 
