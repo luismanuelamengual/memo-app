@@ -13,3 +13,15 @@
     }
   }
 }
+
+@media (max-width: 400px) {
+  #memo-result-page {
+    .main-title {
+      margin-bottom: 40px;
+    }
+
+    .congratulations-banner {
+      display: none;
+    }
+  }
+}
