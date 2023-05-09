@@ -2,7 +2,7 @@ $backgroundColorStart: rgb(240,255,255);
 $backgroundColorEnd: rgb(210,238,249);
 
 .page {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -10,7 +10,7 @@ $backgroundColorEnd: rgb(210,238,249);
   overflow: auto;
   background: $backgroundColorStart;
   background: linear-gradient(180deg, $backgroundColorStart 0%, $backgroundColorEnd 100%);
-  
+
   .page-container {
     text-align: center;
   }
