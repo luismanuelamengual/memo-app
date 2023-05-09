@@ -31,7 +31,7 @@ export async function flipMemoCard(cardNumber: number) {
       memoState.incrementSessionCounter();
       const areTemporaryCardsSameFigure = temporaryFlippedCards.map(card => card.figure).every((v,i,arr) => v === arr[0]);
       if (areTemporaryCardsSameFigure) {
-        playSound('/sounds/success.wav');
+        playSound('./sounds/success.wav');
         memoState.flipTemporarySessionCards();
         if (memoState.isSessionEnded()) {
           const session = MemoStore.getState().session as MemoSession;
@@ -41,12 +41,12 @@ export async function flipMemoCard(cardNumber: number) {
             memoState.setHighScore(session.level, score);
           }
           await sleep(1500);
-          playSound('/sounds/success_fanfair.mp3');
+          playSound('./sounds/success_fanfair.mp3');
           goToMemoResultPage();
         }
       } else {
         await sleep(1000);
-        playSound('/sounds/fail.wav');
+        playSound('./sounds/fail.wav');
         memoState.foldTemporarySessionCards();
       }
     }

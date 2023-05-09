@@ -13,6 +13,6 @@ export function Score({ className = '' }: Props) {
     [className]: !!className
   })}>
     {Math.floor(score)}
-    {isRecord && <img className='crown' src='/svgs/crown.svg' />}
+    {isRecord && <img className='crown' src='./svgs/crown.svg' />}
   </div>;
 }

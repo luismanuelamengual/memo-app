@@ -11,6 +11,6 @@ export function CongratulationsBanner({ className = '' }: Props) {
     'congratulations-banner': true,
     [className]: !!className
   })}>
-    <Player className='animation' autoplay loop src="/lotties/congratulations.json"/>
+    <Player className='animation' autoplay loop src="./lotties/congratulations.json"/>
   </div>;
 }

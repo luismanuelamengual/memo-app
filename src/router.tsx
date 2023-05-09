@@ -15,4 +15,6 @@ export const Router = createBrowserRouter([
     path: Path.MEMO_RESULT,
     element: <MemoResultPage />
   }
-]);
+], {
+  basename: process.env.PUBLIC_URL
+});
