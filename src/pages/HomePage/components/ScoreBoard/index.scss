@@ -1,5 +1,5 @@
 .scores-board {
-  width: 233px;
+  max-width: 233px;
   background-color: azure;
   margin: 0 auto 20px auto;
   border: 2px solid deepskyblue;
@@ -20,9 +20,28 @@
 
   .scores-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     grid-gap: 1px;
-    grid-auto-rows: minmax(10px, auto);
     padding: 8px 4px;
+    grid-template-areas:
+      "headerEasy headerMedium headerHard"
+      "valueEasy valueMedium valueHard";
+
+    .headerEasy { grid-area: headerEasy; }
+    .headerMedium { grid-area: headerMedium; }
+    .headerHard { grid-area: headerHard; }
+    .valueEasy { grid-area: valueEasy; }
+    .valueMedium { grid-area: valueMedium; }
+    .valueHard { grid-area: valueHard; }
+  }
+}
+
+@media (max-width: 400px) {
+  .scores-board {
+    .scores-container {
+      grid-template-areas:
+      "headerEasy valueEasy"
+      "headerMedium valueMedium"
+      "headerHard valueHard";
+    }
   }
 }

@@ -15,12 +15,12 @@ export function ScoreBoard({ className = '' }: Props) {
   })}>
     <div className='scores-header'>Best Scores</div>
     <div className='scores-container'>
-      <div>Easy</div>
-      <div>Medium</div>
-      <div>Hard</div>
-      <div>{Math.floor(highScores[MemoSessionLevel.EASY])}</div>
-      <div>{Math.floor(highScores[MemoSessionLevel.MEDIUM])}</div>
-      <div>{Math.floor(highScores[MemoSessionLevel.HARD])}</div>
+      <div className='headerEasy'>Easy</div>
+      <div className='headerMedium'>Medium</div>
+      <div className='headerHard'>Hard</div>
+      <div className='valueEasy'>{Math.floor(highScores[MemoSessionLevel.EASY])}</div>
+      <div className='valueMedium'>{Math.floor(highScores[MemoSessionLevel.MEDIUM])}</div>
+      <div className='valueHard'>{Math.floor(highScores[MemoSessionLevel.HARD])}</div>
     </div>
   </div>;
 }
