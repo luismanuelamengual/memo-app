@@ -13,5 +13,11 @@ $backgroundColorEnd: rgb(210,238,249);
 
   .page-container {
     text-align: center;
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding-top: 20px;
   }
 }

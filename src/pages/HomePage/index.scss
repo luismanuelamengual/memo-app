@@ -1,6 +1,4 @@
 #home-page {
-  padding-top: 20px;
-
   .main-logo {
     max-width: 200px;
     margin-bottom: 20px;
@@ -26,7 +24,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-height: 650px) {
   #home-page {
     .main-logo {
       display: none;

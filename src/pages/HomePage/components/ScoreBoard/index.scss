@@ -1,47 +1,59 @@
-.scores-board {
-  max-width: 233px;
-  background-color: azure;
-  margin: 0 auto 20px auto;
-  border: 2px solid deepskyblue;
-  margin-bottom: 50px;
-  border-radius: 8px;
-  font-size: 13px;
-  color: deepskyblue;
-  overflow: hidden;
-  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+.scores-container {
+  width: 100%;
 
-  .scores-header {
-    background-color: white;
-    border-bottom: 2px solid deepskyblue;
-    padding: 3px 0;
+  .scores-board {
+    max-width: 233px;
+    background-color: azure;
+    margin: 0 auto 20px auto;
+    border: 2px solid deepskyblue;
+    margin-bottom: 50px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: deepskyblue;
+    overflow: hidden;
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+
+    .scores-header {
+      background-color: white;
+      border-bottom: 2px solid deepskyblue;
+      padding: 3px 0;
+    }
+
+    .scores-content {
+      display: grid;
+      grid-gap: 1px;
+      padding: 8px 4px;
+      grid-template-areas:
+        "headerEasy headerMedium headerHard"
+        "valueEasy valueMedium valueHard";
+
+      .headerEasy { grid-area: headerEasy; }
+      .headerMedium { grid-area: headerMedium; }
+      .headerHard { grid-area: headerHard; }
+      .valueEasy { grid-area: valueEasy; }
+      .valueMedium { grid-area: valueMedium; }
+      .valueHard { grid-area: valueHard; }
+    }
   }
+}
 
+@media (max-width: 1400px) {
   .scores-container {
-    display: grid;
-    grid-gap: 1px;
-    padding: 8px 4px;
-    grid-template-areas:
-      "headerEasy headerMedium headerHard"
-      "valueEasy valueMedium valueHard";
-
-    .headerEasy { grid-area: headerEasy; }
-    .headerMedium { grid-area: headerMedium; }
-    .headerHard { grid-area: headerHard; }
-    .valueEasy { grid-area: valueEasy; }
-    .valueMedium { grid-area: valueMedium; }
-    .valueHard { grid-area: valueHard; }
+    flex: 1;
   }
 }
 
 @media (max-width: 400px) {
-  .scores-board {
-    .scores-container {
-      grid-template-areas:
-      "headerEasy valueEasy"
-      "headerMedium valueMedium"
-      "headerHard valueHard";
+  .scores-container {
+    .scores-board {
+      .scores-content {
+        grid-template-areas:
+        "headerEasy valueEasy"
+        "headerMedium valueMedium"
+        "headerHard valueHard";
+      }
     }
   }
 }

@@ -1,6 +1,3 @@
-#memo-result-page {
-  padding-top: 30px;
-}
 
 @media (min-width: 1400px) {
   #memo-result-page {
@@ -14,7 +11,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-height: 650px) {
   #memo-result-page {
     .main-title {
       margin-bottom: 40px;

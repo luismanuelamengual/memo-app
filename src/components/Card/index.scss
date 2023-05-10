@@ -43,6 +43,9 @@
       background-color: white;
       transform: rotateY(180deg);
       padding: 20px;
+      display: flex;
+      justify-items: center;
+      align-items: center;
     }
     
     .card-content-back {

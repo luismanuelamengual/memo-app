@@ -1,5 +1,4 @@
 #memo-page {
-  padding-top: 30px;
   
   .main-title {
     margin-bottom: 40px;
@@ -7,6 +6,8 @@
 
   .row {
     margin-bottom: 30px;
+    width: 100%;
+    flex: 1;
   }
 
   .column {

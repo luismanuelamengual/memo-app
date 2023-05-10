@@ -1,23 +1,34 @@
-.score {
-  position: relative;
-  display: block;
+.score-container {
+  flex: 1;
+  display: flex;
+  justify-items: center;
+  align-items: center;
   width: 100%;
-  max-width: 200px;
-  margin: 40px auto;
-  background: azure;
-  padding: 20px;
-  font-size: 40px;
-  border-radius: 14px;
-  color: deepskyblue;
-  border: 2px solid deepskyblue;
-
-  .crown {
-    position: absolute;
-    top: -27px;
-    right: -13px;
-    width: 44px;
-    height: 60px;
-    background-repeat: no-repeat;
-    rotate: 31deg;
+  
+  .score {
+    position: relative;
+    background: azure;
+    font-size: 40px;
+    border-radius: 14px;
+    color: deepskyblue;
+    border: 2px solid deepskyblue;
+    margin: 20px auto;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 200px;
+    height: 100px;
+  
+    .crown {
+      position: absolute;
+      top: -27px;
+      right: -13px;
+      width: 44px;
+      height: 60px;
+      background-repeat: no-repeat;
+      rotate: 31deg;
+    }
   }
 }
