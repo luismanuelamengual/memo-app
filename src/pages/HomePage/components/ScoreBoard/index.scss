@@ -2,6 +2,7 @@
   width: 100%;
 
   .scores-board {
+    width: 100%;
     max-width: 233px;
     background-color: azure;
     margin: 0 auto 20px auto;
@@ -42,6 +43,10 @@
 @media (max-width: 1400px) {
   .scores-container {
     flex: 1;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
   }
 }
 
