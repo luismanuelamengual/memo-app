@@ -2,6 +2,8 @@
 
 Digital version of the popular memory game where you turn cards and try to match pairs with the same figure. It's a fun and challenging game that exercises your memory and concentration skills.
 
+[Go To App ↗](https://luismanuelamengual.github.io/memo-app/)
+
 ## Getting started
 
 First it's necessary to install the application dependencies in order to run the application commands. This can be done with the following command
